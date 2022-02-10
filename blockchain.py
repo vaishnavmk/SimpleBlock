@@ -84,11 +84,20 @@ def mine_block():
               'index':mined_block['index'],
               'timestamp':mined_block['timestamp'],
               'proof':mined_block['proof'],
-              'prev_hash':block['prev_hash']
+              'prev_hash':mined_blockblock['prev_hash']
               }
     return jsonify(response), 200
 
 
+@app.route('/show_blockchain', methods=['GET'])
+def show_blockchain():
+    response={'chain':blockchain.chain,
+              'length':len(blockchain.chain),
+              }
+    return jsonify(response), 200
+
+
+app.run(host='0.0.0.0', port=5000)
     
     
     
