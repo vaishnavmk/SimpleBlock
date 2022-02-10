@@ -84,7 +84,7 @@ def mine_block():
               'index':mined_block['index'],
               'timestamp':mined_block['timestamp'],
               'proof':mined_block['proof'],
-              'prev_hash':mined_blockblock['prev_hash']
+              'prev_hash':mined_block['prev_hash']
               }
     return jsonify(response), 200
 
@@ -95,6 +95,17 @@ def show_blockchain():
               'length':len(blockchain.chain),
               }
     return jsonify(response), 200
+
+
+@app.route('/chain_validity', methods=['GET'])
+def chain_validity():
+    validity=blockchain.chain_validity(blockchain.chain)
+    if validity:
+        response={'msg':"The chain is valid bitch!"}
+    else:
+        response={'msg':"The chain is not valid bitch!"}
+    return jsonify(response), 200
+        
 
 
 app.run(host='0.0.0.0', port=5000)
