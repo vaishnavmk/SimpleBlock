@@ -1,7 +1,7 @@
 
-# SimpleCoin
+# SimpleBlock
 
-The simplest implementation of a cyptocurrency blockchain in the world.
+The simplest implementation of a basic blockchain in the world.
 
 
 
